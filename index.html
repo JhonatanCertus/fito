@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorpresa 💛</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff8dc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    h1 {
+      margin-top: 15px;
+      color: #d4a017;
+      font-size: 2rem;
+    }
+    </style>
+</head>
+<body>
+    <img src="Imagen de WhatsApp 2025-09-21 a las 16.59.07_dc73a623.jpg" alt="Flores amarillas">
+  <h1>Con todo mi amor 💛</h1>
+
+  <audio id="miMusica" autoplay>
+    <source src="Floricienta Flores Amarillas [Letra].mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+<script>
+    const audio = document.getElementById("miMusica");
+    const startAt = 30;   // segundo desde donde debe iniciar siempre
+    const endAt = audio.duration; // fin de la canción (se ajusta dinámico)
+
+    audio.addEventListener("loadedmetadata", () => {
+      audio.currentTime = startAt;
+      audio.play();
+    });
+
+    // Cuando llega al final, reinicia en el mismo punto
+    audio.addEventListener("timeupdate", () => {
+      if (audio.currentTime >= audio.duration - 0.2) {
+        audio.currentTime = startAt;
+        audio.play();
+      }
+    });
+  </script>
+
+</body>
+</html>
