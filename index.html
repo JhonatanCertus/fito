@@ -1,61 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorpresa 💛</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #fff8dc;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
-    #fotoSection {
-    display: none; /* Oculto hasta que se pulse el botón */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorpresa 💛</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff8dc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  #fotoSection {
+    display: none;
     flex-direction: column;
     align-items: center;
-    }
-    img {
-      max-width: 90%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      margin-top: 15px;
-    }
-    h1 {
-      color: #d4a017;
-      font-size: 2rem;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      background-color: #ffd700;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-      margin-top: 20px;
-    }
-    button:hover {
-      transform: scale(1.05);
-    }
-  </style>
+  }
+  img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-top: 15px;
+  }
+  h1 {
+    color: #d4a017;
+    font-size: 2rem;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    margin-top: 20px;
+  }
+  button:hover {
+    transform: scale(1.05);
+  }
+</style>
 </head>
 <body>
-    <img src="Imagen.jpg" alt="Flores amarillas">
-  <h1>Con todo mi amor 💛</h1>
 
-  <audio id="miMusica">
-    <source src="musica.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-  </audio>
+<!-- Pantalla inicial -->
+<h1>¡Sorpresa! 💛</h1>
+<button id="playBtn">▶ Reproducir música</button>
+
+<!-- Sección de foto y mensaje -->
+<div id="fotoSection">
+  <img src="Imagen.jpg" alt="Flores amarillas">
+  <h1>Con todo mi amor 💛</h1>
+</div>
+
+<audio id="miMusica">
+  <source src="musica.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio.
+</audio>
 
 <script>
 const audio = document.getElementById("miMusica");
