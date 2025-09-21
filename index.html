@@ -17,46 +17,67 @@
       text-align: center;
       font-family: Arial, sans-serif;
     }
+    #fotoSection {
+    display: none; /* Oculto hasta que se pulse el botón */
+    flex-direction: column;
+    align-items: center;
+    }
     img {
       max-width: 90%;
       height: auto;
       border-radius: 20px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      margin-top: 15px;
     }
     h1 {
-      margin-top: 15px;
       color: #d4a017;
       font-size: 2rem;
     }
-    </style>
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: #ffd700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      margin-top: 20px;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-    <img src="Imagen de WhatsApp 2025-09-21 a las 16.59.07_dc73a623.jpg" alt="Flores amarillas">
+    <img src="Imagen.jpg" alt="Flores amarillas">
   <h1>Con todo mi amor 💛</h1>
 
-  <audio id="miMusica" autoplay>
+  <audio id="miMusica">
     <source src="musica.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
   </audio>
 
 <script>
-    const audio = document.getElementById("miMusica");
-    const startAt = 27;   // segundo desde donde debe iniciar siempre
-    const endAt = audio.duration; // fin de la canción (se ajusta dinámico)
+const audio = document.getElementById("miMusica");
+const btn = document.getElementById("playBtn");
+const fotoSection = document.getElementById("fotoSection");
+const startAt = 27;
 
-    audio.addEventListener("loadedmetadata", () => {
-      audio.currentTime = startAt;
-      audio.play();
-    });
+btn.addEventListener("click", () => {
+  audio.currentTime = startAt;
+  audio.play();
+  btn.style.display = "none";        // Oculta el botón inicial
+  fotoSection.style.display = "flex"; // Muestra la foto y mensaje
+});
 
-    // Cuando llega al final, reinicia en el mismo punto
-    audio.addEventListener("timeupdate", () => {
-      if (audio.currentTime >= audio.duration - 0.2) {
-        audio.currentTime = startAt;
-        audio.play();
-      }
-    });
-  </script>
+// Loop desde startAt
+audio.addEventListener("timeupdate", () => {
+  if(audio.currentTime >= audio.duration - 0.2){
+    audio.currentTime = startAt;
+    audio.play();
+  }
+});
+</script>
 
 </body>
 </html>
